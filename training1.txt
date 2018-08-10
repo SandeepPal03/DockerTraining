@@ -1,0 +1,80 @@
+user1@ip-172-42-1-100:~$ cd /home/user1
+user1@ip-172-42-1-100:~$ cd /home/user1/
+user1@ip-172-42-1-100:~$ pwd
+/home/user1
+user1@ip-172-42-1-100:~$ apt install -y git
+E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
+E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
+user1@ip-172-42-1-100:~$ sudo su
+[sudo] password for user1: 
+root@ip-172-42-1-100:/home/user1# apt install -y git
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+git is already the newest version (1:2.7.4-0ubuntu1.4).
+The following packages were automatically installed and are no longer required:
+  libbonoboui2-common libglade2-0 libgnomecanvas2-0 libgnomecanvas2-common
+  libgnomeui-common libjpeg-progs libjpeg9 linux-headers-4.4.0-53
+  linux-headers-4.4.0-53-generic linux-headers-4.4.0-59
+  linux-headers-4.4.0-59-generic linux-image-4.4.0-53-generic
+  linux-image-4.4.0-59-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 389 not upgraded.
+root@ip-172-42-1-100:/home/user1# mkdir DockerTraining
+root@ip-172-42-1-100:/home/user1# cd DockerTraining/
+root@ip-172-42-1-100:/home/user1/DockerTraining# git init
+Initialized empty Git repository in /home/user1/DockerTraining/.git/
+root@ip-172-42-1-100:/home/user1/DockerTraining# ls -a
+.  ..  .git
+root@ip-172-42-1-100:/home/user1/DockerTraining# mkdir src
+root@ip-172-42-1-100:/home/user1/DockerTraining# cd src
+root@ip-172-42-1-100:/home/user1/DockerTraining/src# vi helloworld.jav
+root@ip-172-42-1-100:/home/user1/DockerTraining/src# ls
+helloworld.jav
+root@ip-172-42-1-100:/home/user1/DockerTraining/src# mv helloworld.jav helloworld.java
+root@ip-172-42-1-100:/home/user1/DockerTraining/src# ls
+helloworld.java
+root@ip-172-42-1-100:/home/user1/DockerTraining/src# cd ..
+root@ip-172-42-1-100:/home/user1/DockerTraining# vi Dockerfile
+root@ip-172-42-1-100:/home/user1/DockerTraining# git add src/helloword.java Dockerfile
+fatal: pathspec 'src/helloword.java' did not match any files
+root@ip-172-42-1-100:/home/user1/DockerTraining# git add src/helloworld.java Dockerfile
+root@ip-172-42-1-100:/home/user1/DockerTraining# git config --global user.name "Sandeep"
+root@ip-172-42-1-100:/home/user1/DockerTraining# git config --global user.email "pallko2008@gmail.com
+> ^C
+root@ip-172-42-1-100:/home/user1/DockerTraining# git config --global user.email "pallko2008@gmail.com"
+root@ip-172-42-1-100:/home/user1/DockerTraining# git commit -m "Added java file & dockerfile"
+[master (root-commit) d1fa74c] Added java file & dockerfile
+ 2 files changed, 13 insertions(+)
+ create mode 100644 Dockerfile
+ create mode 100644 src/helloworld.java
+root@ip-172-42-1-100:/home/user1/DockerTraining# git remote add origin https://github.com/SandeepPal03/DockerTraining
+root@ip-172-42-1-100:/home/user1/DockerTraining# git remote -v
+origin	https://github.com/SandeepPal03/DockerTraining (fetch)
+origin	https://github.com/SandeepPal03/DockerTraining (push)
+root@ip-172-42-1-100:/home/user1/DockerTraining# git pull origin master
+warning: no common commits
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/SandeepPal03/DockerTraining
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+Merge made by the 'recursive' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+root@ip-172-42-1-100:/home/user1/DockerTraining# ls
+Dockerfile  README.md  src
+root@ip-172-42-1-100:/home/user1/DockerTraining# git push origin master
+Username for 'https://github.com': pallko2008@gmail.com
+Password for 'https://pallko2008@gmail.com@github.com': 
+Counting objects: 7, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 900 bytes | 0 bytes/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/SandeepPal03/DockerTraining
+   81dc4f6..127a200  master -> master
+root@ip-172-42-1-100:/home/user1/DockerTraining# 
+

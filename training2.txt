@@ -1,0 +1,502 @@
+Selecting previously unselected package ca-certificates.
+Preparing to unpack .../ca-certificates_20170717~14.04.1_all.deb ...
+Unpacking ca-certificates (20170717~14.04.1) ...
+Selecting previously unselected package wget.
+Preparing to unpack .../wget_1.15-1ubuntu1.14.04.4_amd64.deb ...
+Unpacking wget (1.15-1ubuntu1.14.04.4) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a7.4.052-1ubuntu3.1_all.deb ...
+Adding 'diversion of /usr/share/vim/vim74/doc/help.txt to /usr/share/vim/vim74/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim74/doc/tags to /usr/share/vim/vim74/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:7.4.052-1ubuntu3.1) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a7.4.052-1ubuntu3.1_amd64.deb ...
+Unpacking vim (2:7.4.052-1ubuntu3.1) ...
+Setting up libidn11:amd64 (1.28-1ubuntu2.2) ...
+Setting up libgpm2:amd64 (1.20.4-6.1) ...
+Setting up libpython2.7-minimal:amd64 (2.7.6-8ubuntu0.4) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.6-8ubuntu0.4) ...
+Setting up libpython2.7:amd64 (2.7.6-8ubuntu0.4) ...
+Setting up openssl (1.0.1f-1ubuntu2.26) ...
+Setting up ca-certificates (20170717~14.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+Setting up wget (1.15-1ubuntu1.14.04.4) ...
+Setting up vim-runtime (2:7.4.052-1ubuntu3.1) ...
+Processing /usr/share/vim/addons/doc
+Setting up vim (2:7.4.052-1ubuntu3.1) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+Processing triggers for libc-bin (2.19-0ubuntu6.14) ...
+Processing triggers for ca-certificates (20170717~14.04.1) ...
+Updating certificates in /etc/ssl/certs... 148 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d....done.
+ ---> 4bdf35d9ab75
+Removing intermediate container 96d60da75fde
+Step 4 : RUN mkdir /data/myvol -p
+ ---> Running in 964977c0efe4
+ ---> f3a4425bdd5a
+Removing intermediate container 964977c0efe4
+Step 5 : RUN echo "Welcome To Volume From Docker File" >> /data/myvol/test
+ ---> Running in cd3b431b4834
+ ---> 65dbe07e2f91
+Removing intermediate container cd3b431b4834
+Step 6 : VOLUME data/myvol
+ ---> Running in fac720331409
+ ---> 46b005771822
+Removing intermediate container fac720331409
+Successfully built 46b005771822
+root@ip-172-42-1-100:/home/user1/volume_try# docker volume ls
+DRIVER              VOLUME NAME
+local               myvolume1
+local               nginxlogs
+local               ngnix_logs
+root@ip-172-42-1-100:/home/user1/volume_try# docker ps
+CONTAINER ID        IMAGE                COMMAND                  CREATED             STATUS              PORTS                                           NAMES
+c582b1819569        ubuntu:14.04         "bash"                   About an hour ago   Up About an hour                                                    sharp_stonebraker
+cdd49ba63130        trainingteam/nginx   "nginx -g 'daemon off"   2 hours ago         Up 2 hours          0.0.0.0:32769->80/tcp, 0.0.0.0:32768->443/tcp   nginx_server
+d57249838b47        ubuntu:14.04         "/bin/bash"              2 hours ago         Up 2 hours                                                          furious_knuth
+root@ip-172-42-1-100:/home/user1/volume_try# pwd
+/home/user1/volume_try
+root@ip-172-42-1-100:/home/user1/volume_try# cd ..
+root@ip-172-42-1-100:/home/user1# ls
+bang8    docker-engine_1.11.0-0~xenial_amd64.deb  Downloads         Music          Pictures  Templates  Videos
+Desktop  Documents                                examples.desktop  myhtml_public  Public    TestApp    volume_try
+root@ip-172-42-1-100:/home/user1# ls -lrt
+total 14100
+-rw-r--r-- 1 user1 user1     8980 Sep 11  2017 examples.desktop
+drwxr-xr-x 2 user1 user1     4096 Sep 11  2017 Desktop
+drwxr-xr-x 2 user1 user1     4096 Sep 11  2017 Videos
+drwxr-xr-x 2 user1 user1     4096 Sep 11  2017 Templates
+drwxr-xr-x 2 user1 user1     4096 Sep 11  2017 Public
+drwxr-xr-x 2 user1 user1     4096 Sep 11  2017 Pictures
+drwxr-xr-x 2 user1 user1     4096 Sep 11  2017 Music
+drwxr-xr-x 2 user1 user1     4096 Sep 11  2017 Documents
+-rw-rw-r-- 1 user1 user1 14375492 Aug  4 06:37 docker-engine_1.11.0-0~xenial_amd64.deb
+drwxr-xr-x 2 user1 user1     4096 Aug  4 06:37 Downloads
+drwxr-xr-x 2 root  root      4096 Aug  4 09:49 bang8
+drwxr-xr-x 2 root  root      4096 Aug 10 06:07 TestApp
+drwxr-xr-x 2 root  root      4096 Aug 10 06:50 myhtml_public
+drwxr-xr-x 2 root  root      4096 Aug 10 07:34 volume_try
+root@ip-172-42-1-100:/home/user1# cd volume_try/
+root@ip-172-42-1-100:/home/user1/volume_try# cat Dockerfile
+FROM ubuntu:14.04
+RUN apt-get update
+RUN apt-get install -y wget vim
+RUN mkdir /data/myvol -p
+RUN echo "Welcome To Volume From Docker File" >> /data/myvol/test
+VOLUME data/myvol
+root@ip-172-42-1-100:/home/user1/volume_try# docker build -t image:1.1 .
+Sending build context to Docker daemon 2.048 kB
+Step 1 : FROM ubuntu:14.04
+ ---> 971bb384a50a
+Step 2 : RUN apt-get update
+ ---> Using cache
+ ---> 046191336b75
+Step 3 : RUN apt-get install -y wget vim
+ ---> Using cache
+ ---> 4bdf35d9ab75
+Step 4 : RUN mkdir /data/myvol -p
+ ---> Using cache
+ ---> f3a4425bdd5a
+Step 5 : RUN echo "Welcome To Volume From Docker File" >> /data/myvol/test
+ ---> Using cache
+ ---> 65dbe07e2f91
+Step 6 : VOLUME data/myvol
+ ---> Using cache
+ ---> 46b005771822
+Successfully built 46b005771822
+root@ip-172-42-1-100:/home/user1/volume_try# docker run -it image:1.1 bash
+root@9717a9e855f6:/# docker volume
+bash: docker: command not found
+root@9717a9e855f6:/# ^C
+root@9717a9e855f6:/# root@ip-172-42-1-100:/home/user1/volume_try# 
+root@ip-172-42-1-100:/home/user1/volume_try# docker volume
+
+Usage:	docker volume [OPTIONS] [COMMAND]
+
+Manage Docker volumes
+
+Commands:
+  create                   Create a volume
+  inspect                  Return low-level information on a volume
+  ls                       List volumes
+  rm                       Remove a volume
+
+Run 'docker volume COMMAND --help' for more information on a command
+
+  --help             Print usage
+root@ip-172-42-1-100:/home/user1/volume_try# docker volume ls
+DRIVER              VOLUME NAME
+local               d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201
+local               myvolume1
+local               nginxlogs
+local               ngnix_logs
+root@ip-172-42-1-100:/home/user1/volume_try# docker volume inspect d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201
+[
+    {
+        "Name": "d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201",
+        "Driver": "local",
+        "Mountpoint": "/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data",
+        "Labels": null
+    }
+]
+root@ip-172-42-1-100:/home/user1/volume_try# cd /var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# ls
+test
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# dc test
+dc: 'W' (0127) unimplemented
+dc: 'e' (0145) unimplemented
+dc: register 'c' (0143) is empty
+dc: stack empty
+dc: 'm' (0155) unimplemented
+dc: 'e' (0145) unimplemented
+dc: 'T' (0124) unimplemented
+dc: stack empty
+dc: 'V' (0126) unimplemented
+dc: stack empty
+dc: register 'u' (0165) is empty
+dc: 'm' (0155) unimplemented
+dc: 'e' (0145) unimplemented
+dc: stack empty
+dc: 'm' (0155) unimplemented
+dc: stack empty
+dc: 'e' (0145) unimplemented
+dc: stack empty
+dc: register 'e' (0145) is empty
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# cd test
+bash: cd: test: Not a directory
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# docker inspect test
+[]
+Error: No such image or container: test
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# vi test
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# ls
+test
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# docker run -it image:1.1 bash^C
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# ls
+test
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201/_data# cd ..
+root@ip-172-42-1-100:/var/lib/docker/volumes/d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201# cd
+root@ip-172-42-1-100:~# cd /home/user1/
+bang8/                                   Downloads/                               Templates/
+.bash_history                            examples.desktop                         TestApp/
+.bash_logout                             .ICEauthority                            Videos/
+.bashrc                                  .local/                                  .viminfo
+.cache/                                  .mozilla/                                .vnc/
+.config/                                 Music/                                   volume_try/
+.dbus/                                   myhtml_public/                           .Xdefaults
+Desktop/                                 Pictures/                                .xscreensaver
+docker-engine_1.11.0-0~xenial_amd64.deb  .profile                                 .xsession-errors
+Documents/                               Public/                                  
+root@ip-172-42-1-100:~# cd /home/user1/volume_try/
+root@ip-172-42-1-100:/home/user1/volume_try# ls
+Dockerfile
+root@ip-172-42-1-100:/home/user1/volume_try# cat Dockerfile 
+FROM ubuntu:14.04
+RUN apt-get update
+RUN apt-get install -y wget vim
+RUN mkdir /data/myvol -p
+RUN echo "Welcome To Volume From Docker File" >> /data/myvol/test
+VOLUME data/myvol
+root@ip-172-42-1-100:/home/user1/volume_try# docker volume ls
+DRIVER              VOLUME NAME
+local               d605ade91900854b09f04ef5548c551d12ab200b7348c050aa20157946722201
+local               myvolume1
+local               nginxlogs
+local               ngnix_logs
+root@ip-172-42-1-100:/home/user1/volume_try# brctl show docker0
+The program 'brctl' is currently not installed. You can install it by typing:
+apt install bridge-utils
+root@ip-172-42-1-100:/home/user1/volume_try# apt-get install bridge-utils
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libbonoboui2-common libglade2-0 libgnomecanvas2-0 libgnomecanvas2-common libgnomeui-common libjpeg-progs libjpeg9 linux-headers-4.4.0-53
+  linux-headers-4.4.0-53-generic linux-headers-4.4.0-59 linux-headers-4.4.0-59-generic linux-image-4.4.0-53-generic linux-image-4.4.0-59-generic
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  bridge-utils
+0 upgraded, 1 newly installed, 0 to remove and 389 not upgraded.
+Need to get 28.6 kB of archives.
+After this operation, 102 kB of additional disk space will be used.
+Get:1 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 bridge-utils amd64 1.5-9ubuntu1 [28.6 kB]
+Fetched 28.6 kB in 0s (74.9 kB/s)       
+Selecting previously unselected package bridge-utils.
+(Reading database ... 420315 files and directories currently installed.)
+Preparing to unpack .../bridge-utils_1.5-9ubuntu1_amd64.deb ...
+Unpacking bridge-utils (1.5-9ubuntu1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up bridge-utils (1.5-9ubuntu1) ...
+root@ip-172-42-1-100:/home/user1/volume_try# brctl show docker0
+bridge name	bridge id		STP enabled	interfaces
+docker0		8000.0242453219eb	no		veth2549f65
+							veth74dfed0
+							vethc373085
+							vethd180314
+root@ip-172-42-1-100:/home/user1/volume_try# docker network inspect bridge
+[
+    {
+        "Name": "bridge",
+        "Id": "fb1978096e7f474b80eb9bfc595777978695d0fdf683203b2c269eb33297f09f",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16"
+                }
+            ]
+        },
+        "Internal": false,
+        "Containers": {
+            "9717a9e855f6170c6e4d79aa8c644f5338c8a6ab57fba73ae7242135c605bd09": {
+                "Name": "evil_archimedes",
+                "EndpointID": "9e42c70f55ab285d27ea0b3a5ec1c4bed543f50ef0e35376208a526cad587e75",
+                "MacAddress": "02:42:ac:11:00:05",
+                "IPv4Address": "172.17.0.5/16",
+                "IPv6Address": ""
+            },
+            "c582b18195692073485613a898b1a2686213d4def1c210170f6b86730b67376a": {
+                "Name": "sharp_stonebraker",
+                "EndpointID": "e73bcf480530e285031e893c2d3538bf3234bce955d2ee793ba3717cf7f3ed87",
+                "MacAddress": "02:42:ac:11:00:04",
+                "IPv4Address": "172.17.0.4/16",
+                "IPv6Address": ""
+            },
+            "cdd49ba6313008776ec9e0b760441307b9f5c9f561ab6916f1e946ba7edc492f": {
+                "Name": "nginx_server",
+                "EndpointID": "444cba0ecaa160dd012b954d14b164ee5e6c731404f60c2b0e9b3ae31eabb3e9",
+                "MacAddress": "02:42:ac:11:00:03",
+                "IPv4Address": "172.17.0.3/16",
+                "IPv6Address": ""
+            },
+            "d57249838b47927d3e8b72e2596f654eff97b734fdd2b558ae457ac3d8544435": {
+                "Name": "furious_knuth",
+                "EndpointID": "a9eb620e7271e31d11a3e1ebc6cbbd53fa469a9a788552db01d3a43aa87a87dc",
+                "MacAddress": "02:42:ac:11:00:02",
+                "IPv4Address": "172.17.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+root@ip-172-42-1-100:/home/user1/volume_try# docker stop $(docker ps -aq)
+9717a9e855f6
+c582b1819569
+cdd49ba63130
+d57249838b47
+17ff10595c6e
+09e3e7017ce2
+8320db410c81
+0fbc22ee2686
+dabe52a5bb57
+83641337e5d1
+4f1f48626475
+31f8a9488ba6
+75e6a20700f1
+242a8df8a7e5
+root@ip-172-42-1-100:/home/user1/volume_try# ps
+  PID TTY          TIME CMD
+ 6373 pts/1    00:00:00 sudo
+ 6374 pts/1    00:00:00 su
+ 6375 pts/1    00:00:00 bash
+11894 pts/1    00:00:00 ps
+root@ip-172-42-1-100:/home/user1/volume_try# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+root@ip-172-42-1-100:/home/user1/volume_try# docker run --name=ubuntu1 -d -it ubuntu:14.04 bash
+0b407e37a5cc0d2bb2464d93e4c2c7151d2079087d009012286b99b06bdcd40c
+root@ip-172-42-1-100:/home/user1/volume_try# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+0b407e37a5cc        ubuntu:14.04        "bash"              9 seconds ago       Up 9 seconds                            ubuntu1
+root@ip-172-42-1-100:/home/user1/volume_try# brctl show docker0
+bridge name	bridge id		STP enabled	interfaces
+docker0		8000.0242453219eb	no		vethfda1e48
+root@ip-172-42-1-100:/home/user1/volume_try# docker network inspect bridge
+[
+    {
+        "Name": "bridge",
+        "Id": "fb1978096e7f474b80eb9bfc595777978695d0fdf683203b2c269eb33297f09f",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16"
+                }
+            ]
+        },
+        "Internal": false,
+        "Containers": {
+            "0b407e37a5cc0d2bb2464d93e4c2c7151d2079087d009012286b99b06bdcd40c": {
+                "Name": "ubuntu1",
+                "EndpointID": "4146d641b1b8ab9f69ab9c25f18361c1a77d914593816a3852aacf6e26b160a6",
+                "MacAddress": "02:42:ac:11:00:02",
+                "IPv4Address": "172.17.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+root@ip-172-42-1-100:/home/user1/volume_try# docker run --name=ubuntu2 -d -it ubuntu:14.04 bash
+9cd9c30e634c332976faa5619e9d1827aa334d4f8998b8646831100c9e389d29
+root@ip-172-42-1-100:/home/user1/volume_try# brctl show docker0
+bridge name	bridge id		STP enabled	interfaces
+docker0		8000.0242453219eb	no		veth02b5f54
+							vethfda1e48
+root@ip-172-42-1-100:/home/user1/volume_try# docker network inspect bridge
+[
+    {
+        "Name": "bridge",
+        "Id": "fb1978096e7f474b80eb9bfc595777978695d0fdf683203b2c269eb33297f09f",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16"
+                }
+            ]
+        },
+        "Internal": false,
+        "Containers": {
+            "0b407e37a5cc0d2bb2464d93e4c2c7151d2079087d009012286b99b06bdcd40c": {
+                "Name": "ubuntu1",
+                "EndpointID": "4146d641b1b8ab9f69ab9c25f18361c1a77d914593816a3852aacf6e26b160a6",
+                "MacAddress": "02:42:ac:11:00:02",
+                "IPv4Address": "172.17.0.2/16",
+                "IPv6Address": ""
+            },
+            "9cd9c30e634c332976faa5619e9d1827aa334d4f8998b8646831100c9e389d29": {
+                "Name": "ubuntu2",
+                "EndpointID": "2b233e05876231122910c5baaae607175537693b831c65be2652bec19785f3f3",
+                "MacAddress": "02:42:ac:11:00:03",
+                "IPv4Address": "172.17.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+root@ip-172-42-1-100:/home/user1/volume_try# docker network create --driver bridge my_bridge
+8c39b0a5e60d23f7f979672b5269cc69c7758552bf839aabb9e80cae9a0208a3
+root@ip-172-42-1-100:/home/user1/volume_try# docker network ls
+NETWORK ID          NAME                DRIVER
+fb1978096e7f        bridge              bridge              
+b700d813e7ad        host                host                
+8c39b0a5e60d        my_bridge           bridge              
+35c195773dda        none                null                
+root@ip-172-42-1-100:/home/user1/volume_try# docker run -d -it --net=my_bridge --name=ubuntu3 ubuntu:14.04
+24fddeecb30e495f2413872d34f62b7c96f23eb89001fe087cabed9e43bb2c21
+root@ip-172-42-1-100:/home/user1/volume_try# docker run -d -it --net=my_bridge --name=ubuntu4 ubuntu:14.04
+bf49cd69b9357e480afd8a65b00fea04e51882b5c4d257694b53df8fb9222243
+root@ip-172-42-1-100:/home/user1/volume_try# ls
+Dockerfile
+root@ip-172-42-1-100:/home/user1/volume_try# docker network ls
+NETWORK ID          NAME                DRIVER
+fb1978096e7f        bridge              bridge              
+b700d813e7ad        host                host                
+8c39b0a5e60d        my_bridge           bridge              
+35c195773dda        none                null                
+root@ip-172-42-1-100:/home/user1/volume_try# docker network connect my_bridge ubuntu2
+root@ip-172-42-1-100:/home/user1/volume_try# docker exec ubuntu2 ping ubuntu3
+PING ubuntu3 (172.18.0.2) 56(84) bytes of data.
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=1 ttl=64 time=0.100 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=2 ttl=64 time=0.089 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=3 ttl=64 time=0.052 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=4 ttl=64 time=0.051 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=5 ttl=64 time=0.062 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=6 ttl=64 time=0.059 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=7 ttl=64 time=0.050 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=8 ttl=64 time=0.063 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=9 ttl=64 time=0.081 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=10 ttl=64 time=0.059 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=11 ttl=64 time=0.059 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=12 ttl=64 time=0.084 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=13 ttl=64 time=0.053 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=14 ttl=64 time=0.062 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=15 ttl=64 time=0.064 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=16 ttl=64 time=0.070 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=17 ttl=64 time=0.049 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=18 ttl=64 time=0.052 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=19 ttl=64 time=0.058 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=20 ttl=64 time=0.049 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=21 ttl=64 time=0.054 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=22 ttl=64 time=0.058 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=23 ttl=64 time=0.049 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=24 ttl=64 time=0.073 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=25 ttl=64 time=0.056 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=26 ttl=64 time=0.063 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=27 ttl=64 time=0.063 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=28 ttl=64 time=0.056 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=29 ttl=64 time=0.059 ms
+64 bytes from ubuntu3.my_bridge (172.18.0.2): icmp_seq=30 ttl=64 time=0.048 ms
+^Croot@ip-172-42-1-100:/home/user1/volume_try# docker exec ubuntu3 ping ubuntu4
+PING ubuntu4 (172.18.0.3) 56(84) bytes of data.
+64 bytes from ubuntu4.my_bridge (172.18.0.3): icmp_seq=1 ttl=64 time=0.078 ms
+64 bytes from ubuntu4.my_bridge (172.18.0.3): icmp_seq=2 ttl=64 time=0.059 ms
+64 bytes from ubuntu4.my_bridge (172.18.0.3): icmp_seq=3 ttl=64 time=0.046 ms
+64 bytes from ubuntu4.my_bridge (172.18.0.3): icmp_seq=4 ttl=64 time=0.047 ms
+64 bytes from ubuntu4.my_bridge (172.18.0.3): icmp_seq=5 ttl=64 time=0.060 ms
+64 bytes from ubuntu4.my_bridge (172.18.0.3): icmp_seq=6 ttl=64 time=0.052 ms
+^Croot@ip-172-42-1-100:/home/user1/volume_try# docker run -d -p 80:80 -p 90:8080 nginx
+250774b2d6f1e6100f3d3087f6331c63e4d05093886b0c60118c216a15d98535
+docker: Error response from daemon: driver failed programming external connectivity on endpoint gigantic_bhabha (ddeaf22a0f5d8545658c6767200eee7d18c6ea0edec6fd2d1a14b9282a4f33dc): Error starting userland proxy: listen tcp 0.0.0.0:80: bind: address already in use.
+root@ip-172-42-1-100:/home/user1/volume_try# docker run -d -p 81:80 -p 91:8080 nginx
+531da310ede5c2297a3f9e58d43b384a612b8d9ebdde0f323cee30c79972de34
+root@ip-172-42-1-100:/home/user1/volume_try# docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+531da310ede5        nginx               "nginx -g 'daemon off"   9 seconds ago       Up 8 seconds        0.0.0.0:81->80/tcp, 0.0.0.0:91->8080/tcp   pedantic_kowalevski
+bf49cd69b935        ubuntu:14.04        "/bin/bash"              6 minutes ago       Up 6 minutes                                                   ubuntu4
+24fddeecb30e        ubuntu:14.04        "/bin/bash"              7 minutes ago       Up 7 minutes                                                   ubuntu3
+9cd9c30e634c        ubuntu:14.04        "bash"                   10 minutes ago      Up 10 minutes                                                  ubuntu2
+0b407e37a5cc        ubuntu:14.04        "bash"                   14 minutes ago      Up 14 minutes                                                  ubuntu1
+root@ip-172-42-1-100:/home/user1/volume_try# docker port bf49cd69b935
+root@ip-172-42-1-100:/home/user1/volume_try# docker port 24fddeecb30e 
+root@ip-172-42-1-100:/home/user1/volume_try# 
+
